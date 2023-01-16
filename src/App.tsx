@@ -1,17 +1,16 @@
 import './App.css';
-import Button from './components/atom/Button';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import IndexPage from './IndexPage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <IndexPage />,
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <Button type="button" disabled onClick={() => alert('clicked!')}>
-        얼럿 표출
-      </Button>
-      <Button as="a" href="https://google.com" target="_blank">
-        google 로 이동
-      </Button>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
