@@ -11,7 +11,7 @@ function IndexPage() {
       <Button type="button" onClick={() => alert('clicked!')}>
         클릭이벤트
       </Button>
-      <Button href="https://google.com" target="_blank" disabled>
+      <Button as="a" href="https://google.com" target="_blank">
         google 로 이동
       </Button>
       <Button as="div" role="button">
