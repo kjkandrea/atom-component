@@ -1,9 +1,15 @@
 import React from 'react';
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
-  children: React.ReactNode;
-}
+const defaultElement = 'button';
 
-export default function Button({children, ...rest}: ButtonProps) {
-  return <button {...rest}>{children}</button>;
+type ButtonProps<T extends React.ElementType> = {
+  as?: T;
+} & React.ComponentPropsWithoutRef<T>;
+
+export default function Button<
+  T extends React.ElementType = typeof defaultElement
+>({as, ...rest}: ButtonProps<T>) {
+  const Element = as ?? defaultElement;
+
+  return <Element {...rest} />;
 }
