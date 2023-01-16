@@ -14,6 +14,9 @@ function IndexPage() {
       <Button href="https://google.com" target="_blank" disabled>
         google 로 이동
       </Button>
+      <Button as="div" role="button">
+        나도 버튼 역할을 한다.
+      </Button>
     </>
   );
 }
