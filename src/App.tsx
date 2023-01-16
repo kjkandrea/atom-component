@@ -1,11 +1,16 @@
 import './App.css';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import IndexPage from './IndexPage';
+import IndexPage from './pages/IndexPage';
+import GettingStartedPage from './pages/GettingStartedPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <IndexPage />,
+  },
+  {
+    path: 'getting-started',
+    element: <GettingStartedPage />,
   },
 ]);
 
