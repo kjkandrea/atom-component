@@ -3,9 +3,9 @@ import Button from './components/atom/Button';
 
 function App() {
   return (
-    <div className="App">
-      <Button />
-    </div>
+    <Button type="button" disabled onClick={() => alert('clicked!')}>
+      얼럿 표출
+    </Button>
   );
 }
 
