@@ -1,20 +1,21 @@
 import React from 'react';
 
-// 1. <button> & <a> 사용 시의 Props 타입
+// 1.
 type ButtonElementProps = JSX.IntrinsicElements['button'];
 type AnchorElementProps = JSX.IntrinsicElements['a'];
 
-// 2. as 를 통해 ElementType 를 지정할 경우의 Props 타입
+// 2.
 type PolymorphicElementProps<T extends React.ElementType> = {
   as: T;
 } & React.ComponentPropsWithoutRef<T>;
 
+// 3.
 type ButtonProps<T extends React.ElementType> =
   | ButtonElementProps
   | AnchorElementProps
   | PolymorphicElementProps<T>;
 
-// 3. 렌더링 분기를 위한 is 함수
+// 4.
 function isPropsForPolymorphicElement<T extends React.ElementType>(
   props: ButtonProps<React.ElementType>
 ): props is PolymorphicElementProps<T> {
