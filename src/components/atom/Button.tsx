@@ -6,10 +6,15 @@ type ButtonProps<T extends React.ElementType> = {
   as?: T;
 } & React.ComponentPropsWithoutRef<T>;
 
-export default function Button<
-  T extends React.ElementType = typeof defaultElement
->({as, ...rest}: ButtonProps<T>) {
-  const Element = as ?? defaultElement;
+const Button = React.forwardRef(
+  <T extends React.ElementType = typeof defaultElement>(
+    {as, ...rest}: ButtonProps<T>,
+    ref: React.Ref<any>
+  ) => {
+    const Element = as ?? defaultElement;
 
-  return <Element {...rest} />;
-}
+    return <Element ref={ref} {...rest} />;
+  }
+);
+
+export default Button;
